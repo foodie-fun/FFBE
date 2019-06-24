@@ -5,6 +5,8 @@
 const express = require('express');
 const authRoutes = express.Router();
 const db = require('../dbconfig.js');
+const {authenticate} = require('../middleware/middleware');
+
 
 //---------------------------------------------------------------------------------//
 

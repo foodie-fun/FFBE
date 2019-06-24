@@ -19,7 +19,7 @@ server.get('/', (req, res) => {
   res.send(`<h2>Welcome to the FoodieFun Server!</h2>`)
 });
 
-server.use('/api/newuser', logger, newUserRoutes);
+server.use('/api/new', logger, newUserRoutes);
 server.use('/api/auth', logger, authRoutes);
 
 
