@@ -14,4 +14,41 @@ MVP:
 Stretch: Add a social aspect. You can friend other users, and see what they order frequently or rate the highest at places new and old.
 
 DESIGN LINKS / DATA SETS
-Fun free food icons https://www.invisionapp.com/inside-design/design-resources/download-icons-for-free/ 
+Fun free food icons https://www.invisionapp.com/inside-design/design-resources/download-icons-for-free/
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+REGISTER (POST)
+
+Endpoint: https://foodiefun-be.herokuapp.com/api/new/register
+
+Required:
+```
+{
+ username: string,
+ password: string
+}
+```
+
+Result: Thank you message with the username.
+
+Comment: Username is unique and cannot be repeated.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LOGIN (POST)
+
+Endpoint: https://foodiefun-be.herokuapp.com/api/new/login
+
+Required:
+```
+{
+ username: string,
+ password: string
+}
+```
+Result: Success Message, TOKEN
+
+Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user. Having a token within local storage will allow access to restricted routes within your REACT application.
+
+----------------------------------------------------------------------------------------------------------------------------------
