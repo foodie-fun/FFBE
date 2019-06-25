@@ -94,5 +94,18 @@ newUserRoutes.get('/users', (req, res) => {
 
 //---------------------------------------------------------------------------------//
 
+newUserRoutes.get('/review', (req, res) => {
+    db('review')
+    .then(review => {
+        res.status(200).json(review)
+    })
+    .catch(err => {
+        res.status(500).json({message: "Error getting reviews!"})
+    })
+
+});
+
+//---------------------------------------------------------------------------------//
+
 
 module.exports = newUserRoutes;

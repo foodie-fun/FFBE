@@ -65,7 +65,7 @@ Result: Success Message, TOKEN, ID of Current User
 
 Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user. Having a token within local storage will allow access to restricted routes within your REACT application. Token will last for ONE hour before expiring.
 
-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
 ### GET USERS (GET)
 
@@ -89,7 +89,42 @@ Results: List of all of the users within the Database.
 
 Comment: This endpoint should be used to test your application only. It will be removed once the application is completed.
 
-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+
+### GET REVIEWS (GET)
+
+Endpoint: https://foodiefun-be.herokuapp.com/api/new/review
+
+Results: List of all of the reviews within the Database.
+```
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "resname": "The Big Cheesy",
+        "restype": "american",
+        "foodname": "cheese sandwich",
+        "price": 3.25,
+        "rating": 5,
+        "imgURL": "random URL here",
+        "comment": "Comments are Here!"
+    },
+    {
+        "id": 3,
+        "user_id": 3,
+        "resname": "Olive What",
+        "restype": "Italian",
+        "foodname": "Cheetos",
+        "price": 10.25,
+        "rating": 5,
+        "imgURL": "http://somerandomurl",
+        "comment": "This is a comment that is optional"
+    }
+]
+```
+Comment: This endpoint should be used to test your application only. It will be removed once the application is completed.
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 # ALL OF THE ENDPOINTS BELOW REQUIRE A TOKEN TO ACCESS
 ```
@@ -154,17 +189,6 @@ Results: Array of list of all reviews.
         "imgURL": "http://somerandomurlhere",
         "rating": 3,
         "comment": "This is a comment that is optional! UPDATEDDDDD"
-    },
-    {
-        "id": 3,
-        "user_id": 3,
-        "resname": "Olive What",
-        "restype": "Italian",
-        "foodname": "Cheetos",
-        "price": 10.25,
-        "imgURL": "http://somerandomurlhere",
-        "rating": 5,
-        "comment": "This is a comment that is optional"
     },
 ]
 ```
