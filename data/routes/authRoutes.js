@@ -7,10 +7,10 @@ const authRoutes = express.Router();
 const db = require('../dbconfig.js');
 const {authenticate} = require('../middleware/middleware');
 
-
+// Add a post to the database
 //---------------------------------------------------------------------------------//
 
-authRoutes.post('/', (req, res) => {
+authRoutes.post('/', authenticate, (req, res) => {
 
 
 });

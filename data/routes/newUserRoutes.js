@@ -82,10 +82,7 @@ newUserRoutes.post('/login', (req, res) => {
 //---------------------------------------------------------------------------------//
 
 newUserRoutes.get('/users', (req, res) => {
-    let username = "Nguyen22";
-
     db('users')
-    .where({username})
     .then(users => {
         res.status(200).json(users)
     })
