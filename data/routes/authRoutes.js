@@ -5,36 +5,108 @@
 const express = require('express');
 const authRoutes = express.Router();
 const db = require('../dbconfig.js');
-const {authenticate} = require('../middleware/middleware');
+const { authenticate, checkUserID } = require('../middleware/middleware');
 
-// Add a post to the database
+// Add a review to the database, comment is optional
 //---------------------------------------------------------------------------------//
 
-authRoutes.post('/', authenticate, (req, res) => {
+authRoutes.post('/review', authenticate, checkUserID, (req, res) => {
+    let { user_id, resname, restype, foodname, price, rating } = req.body;
 
+    if (user_id && resname && restype && foodname && price && rating) {
+        db('review')
+        .insert(req.body)
+        .then(id => {
+            res.status(201).json({message: "Post Successful!"})
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Error adding review!" })
+        })
+    } else {
+        res.status(500).json({ message: "Please provide all the required fields!" })
+
+    }
 
 });
 
+// Get all reviews
 //---------------------------------------------------------------------------------//
 
-authRoutes.get('/', (req, res) => {
+authRoutes.get('/review', authenticate,  (req, res) => {
+    db('review')
+    .then(review => {
+        res.status(200).json(review)
+    })
+    .catch(err => {
+        res.status(500).json({message: "Error getting review!"})
+    })
+});
 
+// Get reviews by user_id
+//---------------------------------------------------------------------------------//
+
+authRoutes.get('/review/:id', authenticate,  (req, res) => {
+    const {id} = req.params;
+
+    db('review')
+    .where({id})
+    .first()
+    .then(review => {
+        res.status(200).json(review)
+    })
+    .catch(err => {
+        res.status(500).json({message: "Error getting review!"})
+    })
+});
+
+// Edit a review using its unique id
+//---------------------------------------------------------------------------------//
+
+authRoutes.put('/review/:id', authenticate, (req, res) => {
+    let { user_id, resname, restype, foodname, price, rating } = req.body;
+
+    if (user_id && resname && restype && foodname && price && rating) {
+        db('review')
+        .where({id: req.params.id})
+        .update(req.body)
+        .then(count => {
+            if (count > 0) {
+                // return the count or the newly updated from database
+                db('review').where({ id: req.params.id }).first().then((review) => {
+                    res.status(200).json({ review });
+                });
+            } else {
+                res.status(500).json({ message: 'Action not found!' });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Error adding review!" })
+        })
+    } else {
+        res.status(500).json({ message: "Please provide all the required fields!" })
+
+    }
 
 });
 
-// 
+// Delete a review by its unique ID
 //---------------------------------------------------------------------------------//
 
-authRoutes.put('/', (req, res) => {
-   
+authRoutes.delete('/review/:id', authenticate, (req, res) => {
 
-});
-
-// 
-//---------------------------------------------------------------------------------//
-
-authRoutes.delete('/', (req, res) => {
-
+    db('review')
+    .where({ id: req.params.id })
+    .del()
+    .then((count) => {
+        if (count > 0) {
+            res.status(200).json({ message: 'Destruction Imminent.' });
+        } else {
+            res.status(404).json({ message: 'Project not found!' });
+        }
+    })
+    .catch((err) => {
+        res.status(500).json({message: "Error deleting review."});
+    });
 });
 
 //---------------------------------------------------------------------------------//

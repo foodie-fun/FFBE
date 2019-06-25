@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
+const db = require('../dbconfig.js');
 
 module.exports = {
     generateToken,
-    authenticate
+    authenticate,
+    checkUserID
 }
 
 const jwtKey =
@@ -41,4 +43,20 @@ function generateToken(user) {
         error: 'No token provided, must be set on the Authorization Header',
       });
     }
+  }
+
+  function checkUserID (req, res, next) {
+    let {user_id} = req.body;
+
+    db('users')
+    .where({id: user_id})
+    .first()
+    .then(id => {
+      next();
+    })
+    .catch(err => {
+      res.status(404).json({message: "A user with that ID does not exist."})
+    })
+
+
   }
