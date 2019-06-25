@@ -23,11 +23,12 @@ REGISTER (POST)
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/register
 
 Required:
-
+```
 {
  username: string,
  password: string
 }
+```
 
 Result: Thank you message with the username.
 
@@ -40,12 +41,12 @@ LOGIN (POST)
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/login
 
 Required:
-
+```
 {
  username: string,
  password: string
 }
-
+```
 Result: Success Message, TOKEN
 
 Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user.
