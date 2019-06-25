@@ -52,3 +52,14 @@ Result: Success Message, TOKEN
 Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user. Having a token within local storage will allow access to restricted routes within your REACT application.
 
 ----------------------------------------------------------------------------------------------------------------------------------
+
+GET USERS (GET)
+
+Endpoint: https://foodiefun-be.herokuapp.com/api/new/users
+
+Results: List of all of the users within the Database.
+
+Comment: This endpoint should be used to test your application only. It will be removed once the application is completed.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
