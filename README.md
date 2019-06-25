@@ -140,6 +140,7 @@ Results: Array of list of all reviews.
         "restype": "american",
         "foodname": "cheese sandwich",
         "price": 3.25,
+        "imgURL": "http://somerandomurlhere",
         "rating": 5,
         "comment": "Comments are Here!"
     },
@@ -150,6 +151,7 @@ Results: Array of list of all reviews.
         "restype": "Italian???",
         "foodname": "Cheetos",
         "price": 12.25,
+        "imgURL": "http://somerandomurlhere",
         "rating": 3,
         "comment": "This is a comment that is optional! UPDATEDDDDD"
     },
@@ -160,6 +162,7 @@ Results: Array of list of all reviews.
         "restype": "Italian",
         "foodname": "Cheetos",
         "price": 10.25,
+        "imgURL": "http://somerandomurlhere",
         "rating": 5,
         "comment": "This is a comment that is optional"
     },
@@ -183,6 +186,7 @@ Results: One review with a particular unique ID (1)
     "restype": "american",
     "foodname": "cheese sandwich",
     "price": 3.25,
+    "imgURL": "http://somerandomurlhere",
     "rating": 5,
     "comment": "Comments are Here!"
 }
@@ -206,6 +210,7 @@ Results: All reviews of a particular user_id (1)
         "restype": "american",
         "foodname": "cheese sandwich",
         "price": 3.25,
+        "imgURL": "http://somerandomurlhere",
         "rating": 5,
         "comment": "Comments are Here!"
     },
@@ -216,6 +221,7 @@ Results: All reviews of a particular user_id (1)
         "restype": "Italian???",
         "foodname": "Cheetos",
         "price": 12.25,
+        "imgURL": "http://somerandomurlhere",
         "rating": 3,
         "comment": "This is a comment that is optional! UPDATEDDDDD"
     }
