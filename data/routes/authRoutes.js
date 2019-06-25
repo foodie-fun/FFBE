@@ -10,7 +10,7 @@ const { authenticate, checkUserID } = require('../middleware/middleware');
 // Add a review to the database, comment is optional
 //---------------------------------------------------------------------------------//
 
-authRoutes.post('/review', authenticate, checkUserID, (req, res) => {
+authRoutes.post('/review', authenticate, (req, res) => {
     let { user_id, resname, restype, foodname, price, rating, imgURL } = req.body;
 
     if (user_id && resname && restype && foodname && price && rating && imgURL) {
