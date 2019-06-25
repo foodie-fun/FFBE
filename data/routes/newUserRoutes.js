@@ -66,7 +66,7 @@ newUserRoutes.post('/login', (req, res) => {
             if (user && bcrypt.compareSync(password, user.password)) {
                 let token = generateToken(user);
 
-                res.status(200).json({message: "Success, have a token!", token})
+                res.status(200).json({message: "Success, have a token!", token, id: user.id})
             } else {
                 res.status(500).json({message: "Invalid Credentials."})
             }
@@ -92,21 +92,7 @@ newUserRoutes.get('/users', (req, res) => {
 
 });
 
-// 
 //---------------------------------------------------------------------------------//
 
-newUserRoutes.put('/', (req, res) => {
-
-
-});
-
-// 
-//---------------------------------------------------------------------------------//
-
-newUserRoutes.delete('/', (req, res) => {
-
-});
-
-//---------------------------------------------------------------------------------//
 
 module.exports = newUserRoutes;
