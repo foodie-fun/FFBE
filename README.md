@@ -110,6 +110,7 @@ Required:
  restype: string,
  foodname: string,
  price: float,
+ imgURL: string,
  rating: integer
 }
 ```
@@ -237,6 +238,7 @@ Required:
  restype: string,
  foodname: string,
  price: float,
+ imgURL: string,
  rating: integer
 }
 ```
@@ -251,6 +253,7 @@ Results: Success Message and the updated object.
         "restype": "Never heard of it",
         "foodname": "trash",
         "price": 7.15,
+        "imgURL": "http://somerandomurlhere",
         "rating": 2,
         "comment": "FINAL UPDATEEE"
     }

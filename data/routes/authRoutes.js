@@ -11,9 +11,9 @@ const { authenticate, checkUserID } = require('../middleware/middleware');
 //---------------------------------------------------------------------------------//
 
 authRoutes.post('/review', authenticate, checkUserID, (req, res) => {
-    let { user_id, resname, restype, foodname, price, rating } = req.body;
+    let { user_id, resname, restype, foodname, price, rating, imgURL } = req.body;
 
-    if (user_id && resname && restype && foodname && price && rating) {
+    if (user_id && resname && restype && foodname && price && rating && imgURL) {
         db('review')
             .insert(req.body)
             .then(id => {
@@ -79,9 +79,9 @@ authRoutes.get('/review/user/:id', authenticate, (req, res) => {
 //---------------------------------------------------------------------------------//
 
 authRoutes.put('/review/:id', authenticate, (req, res) => {
-    let { user_id, resname, restype, foodname, price, rating } = req.body;
+    let { user_id, resname, restype, foodname, price, rating, imgURL } = req.body;
 
-    if (user_id && resname && restype && foodname && price && rating) {
+    if (user_id && resname && restype && foodname && price && rating, imgURL) {
         db('review')
             .where({ id: req.params.id })
             .update(req.body)

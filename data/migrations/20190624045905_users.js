@@ -16,6 +16,7 @@ exports.up = function (knex, Promise) {
             tbl.string('foodname', 125).notNullable();
             tbl.float('price', 125).notNullable();
             tbl.integer('rating', 3).notNullable();
+            tbl.string('imgURL', 250).notNullable();
             tbl.string('comment', 1000);
         });
 };
