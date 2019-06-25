@@ -67,7 +67,7 @@ Comment: The JSON WEB TOKEN should be stored on local storage and sent as part o
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-### GET USERS (GET)
+### GET USERS (GET) [TESTING TOOL]
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/users
 
@@ -91,7 +91,7 @@ Comment: This endpoint should be used to test your application only. It will be 
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
-### GET REVIEWS (GET)
+### GET REVIEWS (GET) [TESTING TOOL]
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/review
 
