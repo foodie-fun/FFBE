@@ -1,5 +1,5 @@
 # BackEND for the FoodieFun Application
-This is the backend for foodiefun APP
+This is the backend for foodieFun APP
 
 Pitch: As an avid foodie, I love going out to eat.  I hate remembering what I have and haven’t ordered at each place, what I liked and didn’t like, what the wait time was a certain times of day, etc.  Did I like the burrito or enchilada better? The spicy version or normal?
 
