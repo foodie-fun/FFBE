@@ -98,7 +98,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo2LCJ1c2VybmFt
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-CREATE REVIEW (POST)
+### CREATE REVIEW (POST)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review
 
@@ -125,7 +125,7 @@ Comment: COMMENT is an optional field. User_id is the id of the current user. Yo
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-READ REVIEW (GET)
+### READ REVIEW (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review
 
@@ -169,7 +169,7 @@ Comment: Will only be useful within development for developer testing. Will be r
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-READ REVIEW BY ID (GET)
+### READ REVIEW BY ID (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/:id
 
@@ -191,7 +191,7 @@ Comment: ID is the unique ID of the review. It is NOT the user_id.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-READ ALL REVIEW(S) BY USER_ID (GET)
+### READ ALL REVIEW(S) BY USER_ID (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/user/:id
 
@@ -225,7 +225,7 @@ Comment: ID is the user_id of a current user in the database.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-UPDATE REVIEW BY ID (PUT)
+### UPDATE REVIEW BY ID (PUT)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/:id
 
@@ -261,7 +261,7 @@ Comment: COMMENT is an optional field. ID is the unique ID of the review.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-UPDATE REVIEW BY ID (DELETE)
+### DELETE REVIEW BY ID (DELETE)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/:id
 
