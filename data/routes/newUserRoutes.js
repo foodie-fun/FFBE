@@ -5,7 +5,8 @@ const express = require('express');
 const newUserRoutes = express.Router();
 const db = require('../dbconfig.js');
 const bcrypt = require('bcryptjs');
-const {generateToken} = require('../middleware/middleware');
+const { generateToken } = require('../middleware/middleware');
+
 
 
 // Routes for /api/new
@@ -53,30 +54,44 @@ newUserRoutes.post('/register', (req, res) => {
 
 newUserRoutes.post('/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password);
 
-    if (username && password) {
-
-        db('users')
-            .where({ username })
-            .first()
-            .then(user => {
-                if (user && bcrypt.compareSync(password, user.password)) {
-                    const token = generateToken(user);
-                    console.log(token)
-
-                    res.status(200).json({ message: "Success!", token });
-
-                } else {
-                    res.status(500).json({ message: "Login Failure"})
-                }
-            })
-            .catch(err => {
-                res.status(404).json({ message: "That user could not be found!" })
-            })
-
+    if (!username || !password) {
+        res.status(404).json({message: "Please provide all of the required fields!"})
     } else {
-        res.status(500).json({ message: "Please provide the correct credentials!" })
+        db('users')
+        .where({username})
+        .first()
+        .then(user => {
+            if (user && bcrypt.compareSync(password, user.password)) {
+                let token = generateToken(user);
+
+                res.status(200).json({message: "Success, have a token!", token})
+            } else {
+                res.status(500).json({message: "Invalid Credentials."})
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Error getting user!" });
+        })
     }
+
+});
+
+// TEST ROUTE
+//---------------------------------------------------------------------------------//
+
+newUserRoutes.get('/users', (req, res) => {
+    let username = "Nguyen22";
+
+    db('users')
+    .where({username})
+    .then(users => {
+        res.status(200).json(users)
+    })
+    .catch(err => {
+        res.status(500).json({message: "Error getting users!"})
+    })
 
 });
 

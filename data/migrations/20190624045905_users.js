@@ -11,14 +11,12 @@ exports.up = function (knex, Promise) {
                 .inTable('users')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
-            tbl.string('rest_name', 125).notNullable();
-            tbl.string('rest_type', 125).notNullable();
-            tbl.string('item_name', 125).notNullable();
-            tbl.float('item_price', 125).notNullable();
+            tbl.string('resname', 125).notNullable();
+            tbl.string('restype', 125).notNullable();
+            tbl.string('foodname', 125).notNullable();
+            tbl.float('price', 125).notNullable();
             tbl.integer('rating', 2).notNullable();
-            tbl.integer('wait_time', 125);
-            tbl.date('date', 125);
-            tbl.string('comment', 1000);
+            tbl.string('description', 1000);
         });
 };
 
