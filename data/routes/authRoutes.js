@@ -17,7 +17,7 @@ authRoutes.post('/review', authenticate, (req, res) => {
         db('review')
             .insert(req.body)
             .then(id => {
-                res.status(201).json({ message: "Post Successful!" })
+                res.status(201).json({ message: "Post Successful!", id })
             })
             .catch(err => {
                 res.status(500).json({ message: "Error adding review!" })
