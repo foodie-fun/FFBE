@@ -49,6 +49,6 @@ Required:
 ```
 Result: Success Message, TOKEN
 
-Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user.
+Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user. Having a token within local storage will allow access to restricted routes within your REACT application.
 
 ----------------------------------------------------------------------------------------------------------------------------------
