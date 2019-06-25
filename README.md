@@ -18,7 +18,7 @@ Fun free food icons https://www.invisionapp.com/inside-design/design-resources/d
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-REGISTER
+REGISTER (POST)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/register
 
@@ -35,7 +35,7 @@ Comment: Username is unique and cannot be repeated.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-LOGIN
+LOGIN (POST)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/login
 
