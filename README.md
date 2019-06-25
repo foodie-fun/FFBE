@@ -20,7 +20,7 @@ Fun free food icons https://www.invisionapp.com/inside-design/design-resources/d
 # NON-AUTH ENDPOINTS
 ----------------------------------------------------------------------------------------------------------------------------------
 
-REGISTER (POST)
+### REGISTER (POST)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/register
 
@@ -33,12 +33,17 @@ Required:
 ```
 
 Result: Thank you message with the username.
+```
+{
+    "message": "Welcome Nguyen26!"
+}
+```
 
 Comment: Username is unique and cannot be repeated.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-LOGIN (POST)
+### LOGIN (POST)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/login
 
@@ -49,23 +54,47 @@ Required:
  password: string
 }
 ```
-Result: Success Message, TOKEN
+Result: Success Message, TOKEN, ID of Current User
+```
+{
+    "message": "Success, have a token!",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6Ik5ndXllbjIyIiwiaWF0IjoxNTYxNDQyOTQ5LCJleHAiOjE1NjE0NDY1NDl9.B4jNv1pE6M6gP5whBOU-zNzz3D7syPUFoCp1hx1QQ08",
+    "id": 3
+}
+```
 
 Comment: The JSON WEB TOKEN should be stored on local storage and sent as part of the 'Authorization' header (of the req) when making your axios calls. This allows access to restricted endpoints such as personal reviews related to a user. Having a token within local storage will allow access to restricted routes within your REACT application. Token will last for ONE hour before expiring.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-GET USERS (GET)
+### GET USERS (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/new/users
 
 Results: List of all of the users within the Database.
+```
+[
+    {
+        "id": 3,
+        "username": "Nguyen22",
+        "password": "$2a$10$2EozdisK/c8uZYQ1vaUdQ.yhujM9hfrRt4yLaMQZ0xdLFJJP11kS."
+    },
+    {
+        "id": 4,
+        "username": "Nguyen26",
+        "password": "$2a$10$wrvG/4p0mH26GoxzKnk4bu9iWxkjySlDPXjCygA0tE/I1wzPfTwEq"
+    }
+]
+```
 
 Comment: This endpoint should be used to test your application only. It will be removed once the application is completed.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
 # ALL OF THE ENDPOINTS BELOW REQUIRE A TOKEN TO ACCESS
+```
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo2LCJ1c2VybmFtZSI6IlNreWxlcjYiLCJpYXQiOjE1NjA1Mjk4ODcsImV4cCI6MTU2MDUzMzQ4N30.QdUvi2s13CJ118PjmC-Yv4vCKYNb6VevQdcSgqLZhMo
+```
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -86,6 +115,11 @@ Required:
 ```
 
 Results: Success Message!
+```
+{
+    "message": "Post Successful!"
+}
+```
 
 Comment: COMMENT is an optional field. User_id is the id of the current user. You can get the id from a successful login. Key must use these exact names. Integers (whole and/or negative) and floats are number values with decimals.
 
@@ -96,6 +130,40 @@ READ REVIEW (GET)
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review
 
 Results: Array of list of all reviews.
+```
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "resname": "The Big Cheesy",
+        "restype": "american",
+        "foodname": "cheese sandwich",
+        "price": 3.25,
+        "rating": 5,
+        "comment": "Comments are Here!"
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "resname": "Olive What???",
+        "restype": "Italian???",
+        "foodname": "Cheetos",
+        "price": 12.25,
+        "rating": 3,
+        "comment": "This is a comment that is optional! UPDATEDDDDD"
+    },
+    {
+        "id": 3,
+        "user_id": 3,
+        "resname": "Olive What",
+        "restype": "Italian",
+        "foodname": "Cheetos",
+        "price": 10.25,
+        "rating": 5,
+        "comment": "This is a comment that is optional"
+    },
+]
+```
 
 Comment: Will only be useful within development for developer testing. Will be removed when application is completed.
 
@@ -105,7 +173,19 @@ READ REVIEW BY ID (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/:id
 
-Results: One review with a particular unique ID
+Results: One review with a particular unique ID (1)
+```
+{
+    "id": 1,
+    "user_id": 1,
+    "resname": "The Big Cheesy",
+    "restype": "american",
+    "foodname": "cheese sandwich",
+    "price": 3.25,
+    "rating": 5,
+    "comment": "Comments are Here!"
+}
+```
 
 Comment: ID is the unique ID of the review. It is NOT the user_id.
 
@@ -115,7 +195,31 @@ READ ALL REVIEW(S) BY USER_ID (GET)
 
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/user/:id
 
-Results: All reviews of a particular user_id
+Results: All reviews of a particular user_id (1)
+```
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "resname": "The Big Cheesy",
+        "restype": "american",
+        "foodname": "cheese sandwich",
+        "price": 3.25,
+        "rating": 5,
+        "comment": "Comments are Here!"
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "resname": "Olive What???",
+        "restype": "Italian???",
+        "foodname": "Cheetos",
+        "price": 12.25,
+        "rating": 3,
+        "comment": "This is a comment that is optional! UPDATEDDDDD"
+    }
+]
+```
 
 Comment: ID is the user_id of a current user in the database.
 
@@ -138,8 +242,22 @@ Required:
 ```
 
 Results: Success Message and the updated object.
+```
+{
+    "review": {
+        "id": 2,
+        "user_id": 1,
+        "resname": "Olive What",
+        "restype": "Never heard of it",
+        "foodname": "trash",
+        "price": 7.15,
+        "rating": 2,
+        "comment": "FINAL UPDATEEE"
+    }
+}
+```
 
-Comment: COMMENT is an optional field. 
+Comment: COMMENT is an optional field. ID is the unique ID of the review.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -148,6 +266,11 @@ UPDATE REVIEW BY ID (DELETE)
 Endpoint: https://foodiefun-be.herokuapp.com/api/auth/review/:id
 
 Results: Success Message of Destruction Imminent.
+```
+{
+    "message": "Destruction Imminent."
+}
+```
 
 Comment: ID is the unique ID of the review.
 
