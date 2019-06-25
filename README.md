@@ -31,6 +31,8 @@ Required:
 
 Result: Thank you message with the username.
 
+Comment: Username is unique and cannot be repeated.
+
 ----------------------------------------------------------------------------------------------------------------------------------
 
 LOGIN
