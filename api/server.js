@@ -16,7 +16,7 @@ server.use(function(req, res, next) {
 });
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Welcome to the FoodieFun Server!</h2>`)
+  res.status(200).send(`<h2>Welcome to the FoodieFun Server!</h2>`)
 });
 
 server.use('/api/new', logger, newUserRoutes);
